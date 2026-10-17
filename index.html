@@ -11,8 +11,22 @@
   body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     color: #fff;
-    background: #1a1209 url("images/we-the-people.jpg") center / cover no-repeat fixed;
+    background: #1a1209;
   }
+  /* Ken Burns background: slow upward pan, 9s linear */
+  .bg { position: fixed; inset: 0; overflow: hidden; z-index: -1; background: #1a1209; }
+  .bg-img {
+    position: absolute; left: 0; right: 0; top: 0;
+    height: 120%;
+    background: url("images/we-the-people.jpg") center top / cover no-repeat;
+    animation: kenburns 9s linear infinite alternate;
+    will-change: transform;
+  }
+  @keyframes kenburns {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-16.67%); }
+  }
+  @media (prefers-reduced-motion: reduce) { .bg-img { animation: none; } }
   .hero {
     min-height: 100vh;
     max-width: 1280px;
@@ -69,6 +83,7 @@
 </style>
 </head>
 <body>
+  <div class="bg" aria-hidden="true"><div class="bg-img"></div></div>
   <main class="hero">
     <header class="topbar">
       <a class="logo" href="/"><img src="images/vote-scotty.png" alt="Vote Scotty"></a>
