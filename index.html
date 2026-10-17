@@ -51,15 +51,22 @@
   .logo { margin: -20px 0 0 0; }
   .logo img { display: block; width: min(378px, 72vw); height: auto; }
   .embed { grid-area: embed; }
+  /* Wrapper crops the embed's built-in 12px padding so the box hugs the form card */
+  .embed-clip {
+    width: 100%;
+    max-width: 376px;
+    height: 490px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.55);
+  }
   .embed-box {
     display: block;
-    width: 100%;
-    max-width: 400px;
+    width: calc(100% + 24px);
     height: 530px;
+    margin: -12px 0 0 -12px;
     border: 0;
-    border-radius: 12px;
     background: transparent;
-    box-shadow: 0 12px 40px rgba(0,0,0,.55);
   }
   .photo { grid-area: photo; justify-self: center; }
   .photo img {
@@ -93,7 +100,7 @@
     </header>
 
     <section class="embed">
-      <iframe class="embed-box" src="https://a2gfilepro.com/embed/transfer" title="Send files" allow="clipboard-write"></iframe>
+      <div class="embed-clip"><iframe class="embed-box" src="https://a2gfilepro.com/embed/transfer" title="Send files" allow="clipboard-write"></iframe></div>
     </section>
 
     <div class="photo">
