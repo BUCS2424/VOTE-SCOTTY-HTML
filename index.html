@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vote Scotty</title>
+<meta name="description" content="Vote Scotty.">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #fff;
+    background: #1a1209 url("images/we-the-people.jpg") center / cover no-repeat fixed;
+  }
+  .hero {
+    min-height: 100vh;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 32px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    grid-template-areas: "logo logo" "embed photo";
+    grid-template-rows: auto 1fr;
+    gap: 32px 56px;
+    align-items: center;
+  }
+  .topbar { grid-area: logo; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .tg {
+    display: grid; place-items: center;
+    width: 48px; height: 48px; border-radius: 50%;
+    color: #fff; background: #229ed9;
+    box-shadow: 0 4px 14px rgba(0,0,0,.5);
+    transition: transform .15s ease, background .15s ease;
+  }
+  .tg:hover, .tg:focus-visible { background: #1b8bc2; transform: scale(1.08); }
+  .logo { margin: -20px 0 0 0; }
+  .logo img { display: block; width: min(378px, 72vw); height: auto; }
+  .embed { grid-area: embed; }
+  .embed-box {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: 510px;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    box-shadow: 0 12px 40px rgba(0,0,0,.55);
+  }
+  .photo { grid-area: photo; justify-self: center; }
+  .photo img {
+    display: block;
+    width: min(100%, 460px);
+    height: auto;
+    border-radius: 50%;
+    filter: drop-shadow(0 12px 30px rgba(0,0,0,.6));
+  }
+  @media (max-width: 860px) {
+    .hero {
+      grid-template-columns: 1fr;
+      grid-template-areas: "logo" "photo" "embed";
+      padding: 24px 16px;
+      justify-items: center;
+    }
+    .topbar { justify-content: space-between; }
+    .photo img { width: min(70vw, 320px); }
+    .embed { width: 100%; }
+  }
+</style>
+</head>
+<body>
+  <main class="hero">
+    <header class="topbar">
+      <a class="logo" href="/"><img src="images/vote-scotty.png" alt="Vote Scotty"></a>
+      <a class="tg" href="https://t.me/s/votescotty/about" target="_blank" rel="noopener noreferrer" aria-label="Vote Scotty on Telegram" title="Telegram">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M9.78 15.34l-.4 4.18c.57 0 .82-.25 1.12-.54l2.69-2.57 5.58 4.08c1.02.57 1.74.27 2.02-.94l3.66-17.15c.33-1.51-.55-2.1-1.54-1.73L1.4 9.9c-1.47.57-1.45 1.39-.25 1.76l5.5 1.71L19.4 5.32c.6-.4 1.15-.18.7.22z"/></svg>
+      </a>
+    </header>
+
+    <section class="embed">
+      <iframe class="embed-box" src="https://a2gfilepro.com/embed/transfer" title="Send files" allow="clipboard-write"></iframe>
+    </section>
+
+    <div class="photo">
+      <img src="images/vote-scotty-round.png" alt="Scotty">
+    </div>
+  </main>
+</body>
+</html>
