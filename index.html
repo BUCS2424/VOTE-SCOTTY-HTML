@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vote Scotty</title>
 <meta name="description" content="Vote Scotty.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap">
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; }
@@ -68,7 +71,17 @@
     border: 0;
     background: transparent;
   }
-  .photo { grid-area: photo; justify-self: center; }
+  .photo { grid-area: photo; justify-self: center; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+  .headline {
+    margin: 0;
+    font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 3px 14px rgba(0,0,0,.6);
+  }
   .photo img {
     display: block;
     width: min(100%, 460px);
@@ -84,6 +97,8 @@
       justify-items: center;
     }
     .topbar { justify-content: space-between; }
+    .photo { align-items: center; }
+    .headline { text-align: center; }
     .photo img { width: min(70vw, 320px); }
     .embed { width: 100%; }
   }
@@ -105,6 +120,7 @@
 
     <div class="photo">
       <img src="images/vote-scotty-round.png" alt="Scotty">
+      <h2 class="headline">What could<br>be more American than a Convention of States?</h2>
     </div>
   </main>
 </body>
